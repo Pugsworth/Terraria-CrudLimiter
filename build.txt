@@ -1,0 +1,3 @@
+displayName = MyTestMod
+author = PugsworthWellington
+version = 0.1
