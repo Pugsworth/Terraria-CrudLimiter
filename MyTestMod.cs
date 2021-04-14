@@ -19,8 +19,6 @@ namespace MyTestMod
                 Autoload = true
             };
 
-            Main.dust[0].noLight = false;
-
             Instance = this;
             CrudItems.FillItemNames();
         }
