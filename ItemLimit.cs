@@ -10,7 +10,7 @@ namespace MyTestMod
     [Serializable]
     class ItemLimit : TagSerializable
     {
-        public short ID;
+        public int ID;
         public int LimitSize;
         public string Name;
 

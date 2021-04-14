@@ -23,7 +23,7 @@ namespace MyTestMod.Config
         public override void OnLoaded() => MyTestMod.Config = this;
 
         [Label("Items and stack sizes to limit")]
-        public Dictionary<string, ItemLimit> ItemSets;
+        public List<ItemLimit> ItemSets = CrudItems.Crud;
 
         [DefaultValue(true)]
         [Label("Use default stack sizes for limits")]

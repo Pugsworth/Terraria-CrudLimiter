@@ -8,7 +8,7 @@ namespace MyTestMod
     {
         public override bool CanPickup(Item item, Player player)
         {
-            if (MyTestMod.FullOfItem(item, player) && MyTestMod.NaturalBlockSet.Contains(item, player)) {
+            if (MyTestMod.FullOfItem(item, player) && MyTestMod.CrudItems.Contains(item, player)) {
                 return false;
             }
 
