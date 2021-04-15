@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Terraria;
 using Terraria.ID;
 
@@ -5,7 +6,7 @@ namespace MyModTest.Groups
 {
     public static class Tiles
     {
-        public const List<ushort> Ore = {
+        public static IReadOnlyList<ushort> Ore = new List<ushort> {
                 TileID.Iron,
                 TileID.Copper,
                 TileID.Gold,
@@ -28,15 +29,15 @@ namespace MyModTest.Groups
                 TileID.Orichalcum,
                 TileID.Titanium,
 
-                TileId.FossilOre
+                TileID.FossilOre
         };
 
-        public const List<ushort> Environment = {
+        public static IReadOnlyList<ushort> Environment = new List<ushort> {
             TileID.Heart,
 
             TileID.Containers,
             TileID.Pots,
-            TileId.LifeFruit,
+            TileID.LifeFruit,
             TileID.DyePlants,
 
             TileID.FakeContainers,
@@ -44,8 +45,8 @@ namespace MyModTest.Groups
             TileID.FakeContainers2
         };
 
-        public const List<ushort> Gems = {
-            TileId.Sapphire,
+        public static IReadOnlyList<ushort> Gems = new List<ushort> {
+            TileID.Sapphire,
             TileID.Ruby,
             TileID.Emerald,
             TileID.Topaz,
