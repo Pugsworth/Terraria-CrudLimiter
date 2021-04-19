@@ -7,29 +7,29 @@ namespace MyModTest.Groups
     public static class Tiles
     {
         public static IReadOnlyList<ushort> Ore = new List<ushort> {
-                TileID.Iron,
-                TileID.Copper,
-                TileID.Gold,
-                TileID.Silver,
+            TileID.Iron,
+            TileID.Copper,
+            TileID.Gold,
+            TileID.Silver,
 
-                TileID.Meteorite,
+            TileID.Meteorite,
 
-                TileID.Cobalt,
-                TileID.Mythril,
-                TileID.Adamantite,
+            TileID.Cobalt,
+            TileID.Mythril,
+            TileID.Adamantite,
 
-                TileID.Tin,
-                TileID.Lead,
-                TileID.Tungsten,
-                TileID.Platinum,
+            TileID.Tin,
+            TileID.Lead,
+            TileID.Tungsten,
+            TileID.Platinum,
 
-                TileID.Chlorophyte,
+            TileID.Chlorophyte,
 
-                TileID.Palladium,
-                TileID.Orichalcum,
-                TileID.Titanium,
+            TileID.Palladium,
+            TileID.Orichalcum,
+            TileID.Titanium,
 
-                TileID.FossilOre
+            TileID.FossilOre
         };
 
         public static IReadOnlyList<ushort> Environment = new List<ushort> {

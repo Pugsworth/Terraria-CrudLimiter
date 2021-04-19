@@ -25,18 +25,46 @@ namespace MyModTest.Lighting
     }
     public class LightingGlobalTile : GlobalTile
     {
-        internal LightColor OreGlowStrength = new LightColor(0.5f);
-        internal LightColor EnvironmentGlowStrength = new LightColor(0.1f);
-        internal LightColor GemGlowStrength = new LightColor(0.5f);
+        internal LightColor OreGlowStrength             = new LightColor(0.1f);
+        internal LightColor EnvironmentGlowStrength     = new LightColor(0.15f);
+        internal LightColor GemGlowStrength             = new LightColor(0.2f);
+
+        public LightingGlobalTile()
+        {
+            foreach (var tile in Tiles.Ore) {
+                setupTile(tile);
+            }
+
+            foreach (var tile in Tiles.Environment) {
+                setupTile(tile);
+            }
+
+            foreach (var tile in Tiles.Gems) {
+                setupTile(tile);
+            }
+        }
+
+        private void setupTile(int tile)
+        {
+            Main.tileBlockLight[tile] = true;
+            Main.tileLighted[tile] = true;
+        }
 
         public override void NearbyEffects(int i, int j, int type, bool closer)
         {
             base.NearbyEffects(i, j, type, closer);
         }
 
-        public override void ModifyLight(int i, int j, int type, ref float r, ref float g, ref float b)
+        public override void ModifyLight(int i, int j, int type, ref float r, ref float g, ref float b) 
         {
-            if (Tiles.Ore.Contains((ushort)type)) {
+            if (Main.LocalPlayer.HeldItem.type != ItemID.SpelunkerGlowstick) { // Main.LocalPlayer.HasBuff(BuffID.Spelunker
+                return;
+            }
+
+            Tile thetile = Main.tile[i, j];
+
+
+            if (Tiles.Ore.Contains((ushort)type) || Main.tileSpelunker[type]) {
                 r = g = b = OreGlowStrength.Value;
             } else if (Tiles.Environment.Contains((ushort)type)) {
                 r = g = b = EnvironmentGlowStrength.Value;
