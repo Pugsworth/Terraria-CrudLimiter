@@ -2,6 +2,7 @@ using Terraria;
 using Terraria.ModLoader;
 using MyTestMod.Config;
 using Terraria.ModLoader.Config;
+using Microsoft.Xna.Framework.Input;
 
 namespace MyTestMod
 {
@@ -11,7 +12,8 @@ namespace MyTestMod
         internal static MyConfig Config { get; set; }
         public static MyTestMod Instance { get; private set; }
 
-        public static ModHotKey ForcePickup;
+        private static ModHotKey ForcePickup;
+        public static bool ForcePickupDown = false;
 
         public MyTestMod()
         {
@@ -25,14 +27,18 @@ namespace MyTestMod
 
         public override void Load()
         {
-            ForcePickup = RegisterHotKey("ForcePickup", "f");
+            ForcePickup = RegisterHotKey("ForcePickup", Keys.F.ToString());
 
             base.Load();
         }
 
+        public override void HotKeyPressed(string name)
+        {
+        }
+
         internal static bool FullOfItem(Item item, Player player)
         {
-            if (ForcePickup.JustPressed) {
+            if (ForcePickup.Current) {
                 return false;
             }
 
